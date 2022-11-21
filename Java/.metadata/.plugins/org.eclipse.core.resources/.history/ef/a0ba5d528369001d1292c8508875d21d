@@ -1,0 +1,7 @@
+package mypack;
+import java.util.Scanner;
+import mypack.add;
+public class calc {
+	add add = new add();
+	add.hello();
+}
