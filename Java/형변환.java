@@ -21,6 +21,10 @@ public class MyClass {
       D d = (D)a;
       E e = (E)a;
 
-      System.out.println(a instanceof )
+      System.out.println(a instanceof A);
+      System.out.println(a instanceof B);
+      System.out.println(a instanceof C);
+      System.out.println(a instanceof D);
+      System.out.println(a instanceof E);
     }
 }
