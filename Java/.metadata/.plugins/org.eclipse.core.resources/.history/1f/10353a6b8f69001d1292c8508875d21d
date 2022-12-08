@@ -1,7 +1,0 @@
-package mypack;
-
-public class add {
-	void Hello() {
-		System.out.println("Hello");
-	}
-}

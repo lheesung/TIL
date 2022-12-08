@@ -1,9 +1,0 @@
-package mypack;
-import java.util.Scanner;
-import mypack.add;
-public class calc {
-	public static void main(String[] argv) {
-		add add = new add();
-		add.Sub();
-	}
-}
