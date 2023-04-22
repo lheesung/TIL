@@ -1,5 +1,3 @@
-# 데이터베이스
-
 # 📦 데이터 베이스
 
 > 데이터베이스란 조직에 필요한 정보를 얻기 위해 논리적으로 연관된 데이터를 모아 구조적으로 통합해 놓은 것을 말한다.
@@ -129,10 +127,81 @@ DDL 은 테이블을 생성, 수정, 삭제 하는데에 사용되는 데이터�
 
 | 유형 | 명령어 | 설명 |
 | --- | --- | --- |
-| 테이블 생성 | CREATE | 새로운 테이블을 생성한다. |
+| 🧑‍🔧테이블 생성 | CREATE | 새로운 테이블을 생성한다. |
 | 테이블 수정 | ALTER | 이미 존재하는 테이블에 대해 변경할 때 사용한다. |
 | 테이블 삭제 | DROP
 TRUNCATE | 테이블을 삭제할 때 사용한다.
 테이블 내의 모든 행을 제거할 때 사용한다. |
 
+### 병원 데이터베이스 구현
+
+- 요구사항
+    
+    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/71b9de15-d23d-4d9e-ae74-d36d1cd7f657/Untitled.png)
+    
+    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e90e96f2-b95b-4831-b021-b3ff8e63b936/Untitled.png)
+    
+- CREATE
+    
+    ```sql
+    create table Paitient (
+    	p_no int not null primary key,
+    	p_name varchar(10),
+    	p_id varchar(15),
+    	p_pw varchar(10),
+    	p_bd date
+    );
+    
+    create table doctor (
+        d_no int primary key not null,
+        d_section varchar(10),
+        d_name varchar(15),
+        d_day varchar(1),
+        d_time varchar(2)
+    );
+    
+    create table examination(
+        e_no int primary key not null,
+        e_name varchar(10)
+    );
+    
+    create table reservation(
+        r_no int primary key not null,
+        p_no int,
+        d_no int,
+        r_section varchar(10),
+        r_date varchar(14),
+        r_time varchar(10),
+        e_no int,
+        foreign key(p_no) references Paitient(p_no),
+        foreign key(d_no) references doctor(d_no),
+        foreign key(e_no) references examination(e_no)
+    );
+    
+    create table sickroom(
+        s_no int primary key not null,
+        s_people int,
+        s_room int,
+        s_roomno varchar(20)
+    );
+    
+    create table hospitalization(
+        h_no int primary key not null,
+        p_no int,
+        s_no int,
+        h_bedno int,
+        h_sday varchar(14),
+        h_fday varchar(14),
+        h_meal int,
+        h_amount int,
+        foreign key(p_no) references Paitient(p_no),
+        foreign key(s_no) references sickroom(s_no)
+    );
+    ```
+    
+
+## 👨‍🔧 DML
+
 # 🤝 조인
+
+조인은 두 테이블에서 공통 속성을 기준으로 속성값이 같은 튜플을 수평으로 합치는 연산이다.
