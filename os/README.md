@@ -1,7 +1,3 @@
-# 나오는거
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f8b89bda-50e9-441b-9f94-7d21b6280afd/Untitled.png)
-
 # CHAPTER 01
 
 # 💁‍♂️ 운영체제의 개요
